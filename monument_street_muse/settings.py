@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-2wpl@l@#0yg+iv4gafy#rc$3tq=rtq)olx6@3xznz7=%r#8zm!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['monument-street-muse.herokuapp.com']
 
 
 # Application definition
