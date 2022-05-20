@@ -1,1 +1,1 @@
-web: gunicorn monument-street-muse.wsgi
+web: gunicorn monument_street_muse.wsgi
