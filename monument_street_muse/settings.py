@@ -11,20 +11,27 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import environ
 import os
+
+# Configure environment defaults
+env = environ.Env(
+    DEBUG=(bool, False)
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Read environment from .env
+environ.Env.read_env(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2wpl@l@#0yg+iv4gafy#rc$3tq=rtq)olx6@3xznz7=%r#8zm!'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['monument-street-muse.herokuapp.com']
 
@@ -116,7 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'    
 
 # Default primary key field type
