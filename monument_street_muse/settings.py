@@ -33,12 +33,14 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['monument-street-muse.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'monument-street-muse.herokuapp.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'magazine',
+    'markdownfield',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
