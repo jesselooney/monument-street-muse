@@ -3,6 +3,8 @@ from django.db import models
 from markdownfield.models import MarkdownField, RenderedMarkdownField
 from markdownfield.validators import VALIDATOR_STANDARD
 
+from .utils import int_to_roman
+
 from datetime import date
 
 
@@ -52,11 +54,13 @@ class Magazine(models.Model):
     volume = models.SmallIntegerField(editable=False, null=True, default=None)
     issue = models.SmallIntegerField(editable=False, null=True, default=None)
 
+    # TODO: add edit date
+
     class Meta:
         ordering = ['volume', 'issue']
 
     def __str__(self):
-        return f'Vol. {self.volume} Iss. {self.issue}' if self.status != 'd' else 'Draft'
+        return f'Volume {int_to_roman(self.volume)}, Issue {self.issue}' if self.status != 'd' else 'Draft'
 
     def publish(self):
         """Mark the Magazine as published and set the publication date,

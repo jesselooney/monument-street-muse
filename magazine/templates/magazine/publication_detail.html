@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'magazine/publication.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="publication">
+    <h1 class="title">{{ publication }}</h1>
+    <span class="date">{{ publication.publication_date }}</span>
+    <div class="editor_note">{{ publication.editor_note_rendered | safe }}</div>
+</div>
+    <a class="button" target="_blank"href="{% url 'reader' publication.pk %}">Read Now</a>
+{% endblock %}

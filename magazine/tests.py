@@ -1,7 +1,11 @@
 from django.test import TestCase
 
-from magazine.models import Magazine
+from .models import Magazine
+
+from .utils import int_to_roman
+
 from datetime import date
+
 
 class MagazineTestCase(TestCase):
     def setUp(self):
@@ -42,3 +46,24 @@ class MagazineTestCase(TestCase):
 
         self.assertEqual(second_publication.volume, first_publication.volume + 1)
         self.assertEqual(second_publication.issue, 1)
+
+
+class UtilsTestCase(TestCase):
+    def test_int_to_roman(self):
+        """Function should convert integers to roman numerals correctly"""
+        self.assertEqual(int_to_roman(1), 'I')
+        self.assertEqual(int_to_roman(2), 'II')
+        self.assertEqual(int_to_roman(3), 'III')
+        self.assertEqual(int_to_roman(4), 'IV')
+        self.assertEqual(int_to_roman(5), 'V')
+        self.assertEqual(int_to_roman(6), 'VI')
+        self.assertEqual(int_to_roman(7), 'VII')
+        self.assertEqual(int_to_roman(8), 'VIII')
+        self.assertEqual(int_to_roman(9), 'IX')
+        self.assertEqual(int_to_roman(10), 'X')
+        # random sample of [1, 10000] from random.org
+        self.assertEqual(int_to_roman(7022), 'MMMMMMMXXII')
+        self.assertEqual(int_to_roman(9939), 'MMMMMMMMMCMXXXIX')
+        self.assertEqual(int_to_roman(115), 'CXV')
+        self.assertEqual(int_to_roman(6627), 'MMMMMMDCXXVII')
+        self.assertEqual(int_to_roman(5692), 'MMMMMDCXCII')

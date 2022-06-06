@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Bellefair&family=Benne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #E8F7EE;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0 2em;
+
+    max-width: 80ch;
+    text-align: justify;
+}
+
+footer {
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 5em;
+
+    background-color: #7a2938;
+    color: white;
+}
+footer a {
+    color: white;
+}
+
+nav {
+    margin: 1em;
+
+    color: black;
+    text-align: center;
+}
+
+nav .magazine-title {
+    font-family: 'Mea Culpa', cursive;
+    font-size: 4em;
+    color: black;
+    text-decoration: none;
+}
+
+nav .links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 70ch;
+
+    margin: 1em 0;
+    padding: 0 1em;
+}
+
+a {
+    text-decoration: underline; 
+}
+a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+a.button {
+    margin: .2em;
+    padding: .3em .8em;
+
+    font-family: 'Bellefair', serif;
+    font-size: 1.3em;
+    background-color: #7a2938;
+    color: white;
+}

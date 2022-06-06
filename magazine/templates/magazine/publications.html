@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'magazine/publication.css' %}">
+{% endblock %}
+
+{% block content %}
+<ul class="publications">
+    {% for publication in publications %}
+    <li class="publication">
+        <a class="title" href="{% url 'publication_detail' publication.pk %}">{{ publication }}</a>
+        <span class="date">{{ publication.publication_date }}</span>
+        <div class="editor_note truncated">{{ publication.editor_note_rendered | safe }}</div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

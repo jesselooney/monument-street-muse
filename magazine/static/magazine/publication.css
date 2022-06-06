@@ -1,0 +1,32 @@
+.publication {
+    margin: 1em 0;
+}
+
+.publication .title {
+    font-family: 'Bellefair', serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: black;
+    text-transform: uppercase;
+}
+
+.publication .date {
+    font-weight: bold;
+    font-size: .8em;
+}
+
+.publication .editor_note {
+    max-width: 60ch;
+}
+
+.publication .editor_note.truncated p:first-child {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.publication .editor_note.truncated p:not(:first-child) {
+    display: none;
+}

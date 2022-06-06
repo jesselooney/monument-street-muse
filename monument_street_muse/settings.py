@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import environ
-import os
 
 # Configure environment defaults
 env = environ.Env(
@@ -39,6 +38,7 @@ ALLOWED_HOSTS = ['localhost', 'monument-street-muse.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'home',
     'magazine',
     'markdownfield',
     'django.contrib.admin',
@@ -64,7 +64,7 @@ ROOT_URLCONF = 'monument_street_muse.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'monument_street_muse/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,6 +125,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+STATICFILES_DIRS = [
+    BASE_DIR / 'monument_street_muse/static'
+]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'    
 
