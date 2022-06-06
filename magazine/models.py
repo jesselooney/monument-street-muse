@@ -12,7 +12,6 @@ class Author(models.Model):
     name = models.CharField(max_length=255)
     graduation_year = models.SmallIntegerField()
     email = models.EmailField(blank=True)
-    alias = models.CharField(max_length=255, blank=True)
 
     class Meta:
         ordering = ['name']
@@ -26,6 +25,7 @@ class Scriptum(models.Model):
         Author,
         on_delete=models.CASCADE,
     )
+    author_pseudonym = models.CharField(max_length=255, blank=True)
     title = models.CharField(max_length=255)
     text = MarkdownField(rendered_field='text_rendered', validator=VALIDATOR_STANDARD)
     text_rendered = RenderedMarkdownField()
