@@ -13,7 +13,7 @@ class ScriptumAdmin(admin.ModelAdmin):
 
 @admin.register(Magazine)
 class MagazineAdmin(admin.ModelAdmin):
-    list_display = ['status', 'volume', 'issue']
+    list_display = ['status', 'volume', 'issue', 'publication_date']
 
     actions = ['publish', 'withdraw']
 
