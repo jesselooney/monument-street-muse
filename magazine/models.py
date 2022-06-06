@@ -76,7 +76,7 @@ class Magazine(models.Model):
                 )
 
                 try:
-                    latest_publication = Magazine.objects.filter(status='p').latest('publication_date')
+                    latest_publication = Magazine.objects.filter(status='p').latest('volume', 'issue')
                 except Magazine.DoesNotExist:
                     latest_publication = None
 
