@@ -63,11 +63,10 @@ class Magazine(models.Model):
         return f'Volume {int_to_roman(self.volume)}, Issue {self.issue}' if self.status != 'd' else 'Draft'
 
     def publish(self):
-        """Mark the Magazine as published and set the publication date,
-        volume, and issue if it was previously a draft
+        """Mark the Magazine as published, and if it was previously
+        a draft, set the publication date, volume, and issue 
         """
 
-        # TODO: prevent status from switching back to 'd' if mag was EVER published
         match self.status:
             case 'd':
                 self.publication_date = date.today()
@@ -97,10 +96,14 @@ class Magazine(models.Model):
                 self.status = 'p'
 
             case 'p':
-                # TODO: implement + test cases
-                pass
+                return
             case 'w':
-                # TODO: implement + test cases
-                pass
+                self.status = 'p'
         
         super(Magazine, self).save()
+
+    def withdraw(self):
+        """Mark the Magazine as withdrawn if and only if it is not a draft"""
+        if self.status != 'd':
+            self.status = 'w'
+            super(Magazine, self).save()

@@ -47,6 +47,57 @@ class MagazineTestCase(TestCase):
         self.assertEqual(second_publication.volume, first_publication.volume + 1)
         self.assertEqual(second_publication.issue, 1)
 
+    def test_publish_changes_nothing_if_published(self):
+        """Publishing a published magazine changes nothing"""
+        publication = Magazine.objects.get(pk=1)
+        publication.publish()
+
+        initial_volume = publication.volume
+        initial_issue = publication.issue
+        initial_publication_date = publication.publication_date
+
+        publication.publish()
+
+        self.assertEqual(publication.volume, initial_volume)
+        self.assertEqual(publication.issue, initial_issue)
+        self.assertEqual(publication.publication_date, initial_publication_date)
+        self.assertEqual(publication.status, 'p')
+
+    def test_publish_changes_only_status_if_withdrawn(self):
+        """Publishing a withdrawn magazine only updates its status"""
+        publication = Magazine.objects.get(pk=1)
+        publication.publish()
+        publication.withdraw()
+
+        initial_volume = publication.volume
+        initial_issue = publication.issue
+        initial_publication_date = publication.publication_date
+
+        publication.publish()
+
+        self.assertEqual(publication.volume, initial_volume)
+        self.assertEqual(publication.issue, initial_issue)
+        self.assertEqual(publication.publication_date, initial_publication_date)
+        self.assertEqual(publication.status, 'p')
+    
+    def test_withdraw_changes_status_if_published(self):
+        """Withdrawing a published magazine sets the status to withdrawn"""
+        publication = Magazine.objects.get(pk=1)
+        publication.publish()
+        
+        self.assertEqual(publication.status, 'p')
+        publication.withdraw()
+        self.assertEqual(publication.status, 'w')
+
+
+    def test_withdraw_changes_nothing_if_draft(self):
+        """Drafts may not be withdrawn"""
+        publication = Magazine.objects.get(pk=1)
+        
+        self.assertEqual(publication.status, 'd')
+        publication.withdraw()
+        self.assertEqual(publication.status, 'd')
+
 
 class UtilsTestCase(TestCase):
     def test_int_to_roman(self):

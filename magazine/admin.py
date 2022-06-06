@@ -15,7 +15,7 @@ class ScriptumAdmin(admin.ModelAdmin):
 class MagazineAdmin(admin.ModelAdmin):
     list_display = ['status', 'volume', 'issue']
 
-    actions = ['publish']
+    actions = ['publish', 'withdraw']
 
     @admin.action(description='Publish selected magazine')
     def publish(self, request, queryset):
@@ -23,4 +23,10 @@ class MagazineAdmin(admin.ModelAdmin):
             self.message_user(request, 'Cannot publish more than one magazine at once', messages.MessageFailure)
         else:
             queryset.first().publish()
-            self.message_user(request, 'Published magazine', messages.SUCCESS) # TODO: change message depending on status of magazine
+            self.message_user(request, 'Published magazine', messages.SUCCESS)
+
+    @admin.action(description='Withdraw selected magazine')
+    def withdraw(self, request, queryset):
+        for magazine in queryset:
+            magazine.withdraw()
+        # TODO: better error messaging
