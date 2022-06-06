@@ -9,7 +9,7 @@ class AuthorAdmin(admin.ModelAdmin):
 
 @admin.register(Scriptum)
 class ScriptumAdmin(admin.ModelAdmin):
-    list_display = ['title']
+    list_display = ['title', 'author', 'author_pseudonym']
 
 @admin.register(Magazine)
 class MagazineAdmin(admin.ModelAdmin):
