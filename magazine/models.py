@@ -57,7 +57,7 @@ class Magazine(models.Model):
     # TODO: add edit date
 
     class Meta:
-        ordering = ['volume', 'issue']
+        ordering = ['-volume', '-issue']
 
     def __str__(self):
         return f'Volume {int_to_roman(self.volume)}, Issue {self.issue}' if self.status != 'd' else 'Draft'
