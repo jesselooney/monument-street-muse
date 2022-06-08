@@ -30,3 +30,13 @@
 .publication .editor_note.truncated p:not(:first-child) {
     display: none;
 }
+
+.publication.withdrawn {
+    font-style: italic;
+}
+.publication.withdrawn::after {
+    content: '| PUBLICATION WITHDRAWN';
+    font-style: normal;
+    font-weight: bold;
+    font-size: .8em;
+}

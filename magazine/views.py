@@ -1,12 +1,12 @@
-from lzma import is_check_supported
 from django.shortcuts import render
+from django.core.exceptions import PermissionDenied
 
 from .models import Magazine
 
 
 def publications(request):
     # TODO get request.GET params
-    publications = Magazine.objects.filter(status='p')
+    publications = Magazine.objects.filter(status__in=['p', 'w'])
     if vol := request.GET.get('vol'):
         publications = publications.filter(volume=vol)
     if iss := request.GET.get('iss'):
@@ -28,6 +28,8 @@ def publications(request):
 
 def publication_detail(request, pk):
     publication = Magazine.objects.get(pk=pk)
+    if publication.status == 'w':
+        raise PermissionDenied
     return render(
         request,
         'magazine/publication_detail.html',
@@ -37,6 +39,8 @@ def publication_detail(request, pk):
 
 def reader(request, pk):
     publication = Magazine.objects.get(pk=pk)
+    if publication.status == 'w':
+        raise PermissionDenied
     return render(
         request,
         'magazine/reader.html',

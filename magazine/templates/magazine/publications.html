@@ -9,11 +9,19 @@
 {% block content %}
 <ul class="publications">
     {% for publication in publications %}
+    {% if publication.status == 'p' %}
     <li class="publication">
         <a class="title" href="{% url 'publication_detail' publication.pk %}">{{ publication }}</a>
-        <span class="date">{{ publication.publication_date }}</span>
+        <span class="date">• {{ publication.publication_date }}</span>
         <div class="editor_note truncated">{{ publication.editor_note_rendered | safe }}</div>
     </li>
+    {% endif %}
+    {% if publication.status == 'w' %}
+    <li class="publication withdrawn">
+        <span class="title" href="{% url 'publication_detail' publication.pk %}">{{ publication }}</span>
+        <span class="date">• {{ publication.publication_date }}</span>
+    </li>
+    {% endif %}
     {% endfor %}
 </ul>
 {% endblock %}
