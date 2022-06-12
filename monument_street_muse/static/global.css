@@ -64,6 +64,7 @@ nav .links {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    list-style: none;
 
     width: 100%;
     max-width: 70ch;
@@ -81,6 +82,8 @@ a:hover, a:focus {
 }
 
 a.button {
+    display: flex;
+    align-items: center;
     margin: .2em;
     padding: .3em .8em;
 
