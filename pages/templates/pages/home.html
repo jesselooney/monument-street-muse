@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'pages/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="description">
+    <p><em>The Monument Street Muse</em> is a literary magazine that aims to promote interest in writing by publishing the poetry and other short written works of Haverhill High School scholars on a public website.
+    Our mission is to give scholars interested in the literary arts an accessible foot in the door of publication and the opportunity of viewership by their peers.</p>
+    <p>We actively seek work by writers and artists of color, queer and gender nonconforming writers, and writers from other underrepresented communities</p>
+    <p>Submissions will be reviewed by a committee of editors within the school for a chance to be featured on this website or published in our periodical magazine.
+    If you are a student of Haverhill High School, please feel free to submit any shorter written pieces you would like using the button below.</p>
+
+    <a class="button" target="_blank" href="https://forms.gle/WZGDFZEEsQBpQzf19">Submit Work</a>
+
+    <p>We also welcome diverse perspectives in our submission review committee.
+    If you are interested in joining the editing team and reviewing submissions,
+    please email us at <em>themonumentstreetmuse@gmail.com</em>.</p>
+</section>
+{% endblock %}

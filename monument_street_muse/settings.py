@@ -38,7 +38,7 @@ ALLOWED_HOSTS = ['localhost', 'monument-street-muse.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'home',
+    'pages',
     'magazine',
     'markdownfield',
     'django.contrib.admin',
