@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Bellefair&family=Benne&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Bellefair&family=Lora&display=swap');
 
 * {
     margin: 0;
@@ -9,7 +7,7 @@
 }
 
 :root {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lora', serif;
     font-size: 18px;
     line-height: 1.5;
 }
@@ -65,7 +63,7 @@ nav .magazine-title {
 nav .links {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     width: 100%;
     max-width: 70ch;
