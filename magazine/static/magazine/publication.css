@@ -40,3 +40,8 @@
     font-weight: bold;
     font-size: .8em;
 }
+
+svg {
+    margin-left: .3em;
+    width: 1em;
+}
