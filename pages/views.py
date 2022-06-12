@@ -6,6 +6,6 @@ def home(request):
         request,
         'pages/home.html',
         {
-            'title': 'Home'
+            'title': 'About'
         }
     )
