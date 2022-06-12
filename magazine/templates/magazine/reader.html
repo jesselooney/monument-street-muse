@@ -11,11 +11,20 @@
     <link rel="stylesheet" href="{% static 'magazine/reader.css' %}">
 </head>
 <body>
-    <h1>{{ publication }}</h1>
+    <h1 class="magazine-title">The Monument Street Muse</h1>
+    <h2 class="publication-title">{{ publication }}</h2>
+    <span class="publication-date">{{ publication.publication_date }}</span>
     <main>
-        <section class='editor_note'>
-            {{ publication.editor_note_rendered | safe }}
+        {% for scriptum in publication.scripta.all %}
+        <section class="scriptum">
+            <h3 class="scriptum-title">{{ scriptum.title }}</h3>
+            <span class="author">{{ scriptum.author_pseudonym_or_name }}</span>
+            <span class="graduation-year">{{ scriptum.author.abbreviated_graduation_year }}</span>
+            <div class="content">
+                {{ scriptum.text_rendered | safe }}
+            </div>
         </section>
+        {% endfor %}
     </main>
 </body>
 </html>

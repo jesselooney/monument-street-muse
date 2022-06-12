@@ -1,3 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Bellefair&family=Lora&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 18px;
+}
+
+@media screen and (min-width: 1450px) {
+    .magazine-title {
+        font-size: 6em;
+    }
+    main {
+      column-count: 3;
+    }
+}
+@media screen and (min-width: 100px) and (max-width: 1450px) {
+    .magazine-title {
+        font-size: 5em;
+    }
+    main {
+      column-count: 2;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .magazine-title {
+        font-size: 3em;
+    }
+    main {
+      column-count: 1;
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: 'Lora', serif;
+    background-color: #D4D4D4;
+}
+
 main {
-    display: block;
+    margin-top: 2em;
+    margin-left: 1em;
+    column-gap: 1em;
+}
+
+.scriptum {
+    margin-bottom: 2em;
+    break-inside: avoid;
+    max-width: 80ch;
+    overflow: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Bellefair', serif;
+}
+
+h1 {
+    margin: .4em 0;
+    font-size: 1.8em;
+}
+
+h2 {
+    margin: .2em 0;
+    font-size: 1.6em;
+}
+ h3 {
+    margin: .1em 0;
+    font-size: 1.4em;
+ }
+
+.magazine-title {
+    border-bottom: black 4px solid;
+
+    font-family: 'Mea Culpa', cursive;
+    text-align: center;
+}
+
+.publication-title {
+    margin-top: .5em;
+    font-size: 3em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.publication-date {
+    text-transform: uppercase;
+}
+
+.scriptum-title {
+    font-size: 2em;
+}
+
+.author {
+    margin-right: .2em;
+    font-family: 'Bellefair', serif;
+    font-size: 1.3em;
+    font-style: italic;
+}
+
+.content {
+    margin-top: .5em;
+    font-size: .8em;
+}
+
+.center {
+    text-align: center;
 }
