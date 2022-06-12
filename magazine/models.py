@@ -19,6 +19,9 @@ class Author(models.Model):
     def __str__(self):
         return self.name
 
+    def abbreviated_graduation_year(self):
+        return "'" + str(self.graduation_year)[-2:] # so that 2022 -> '22
+
 
 class Scriptum(models.Model):
     author = models.ForeignKey(
@@ -36,6 +39,9 @@ class Scriptum(models.Model):
 
     def __str__(self):
         return self.title
+
+    def author_pseudonym_or_name(self):
+        return self.author_pseudonym or self.author.name
 
 STATUS_CHOICES = [
     ('d', 'Draft'),
