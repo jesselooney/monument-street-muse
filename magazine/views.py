@@ -18,6 +18,7 @@ def publications(request):
         request,
         'magazine/publications.html',
         {
+            'title': 'Publications',
             'publications': publications,
             'volume': vol,
             'issue': iss,
@@ -33,7 +34,10 @@ def publication_detail(request, pk):
     return render(
         request,
         'magazine/publication_detail.html',
-        {'publication': publication}
+        {
+            'title': str(publication),
+            'publication': publication,
+        }
     )
 
 
@@ -44,5 +48,8 @@ def reader(request, pk):
     return render(
         request,
         'magazine/reader.html',
-        {'publication': publication}
+        {
+            'title': str(publication),
+            'publication': publication,
+        }
     )
