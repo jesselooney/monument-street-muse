@@ -70,10 +70,16 @@ h2 {
     margin: .2em 0;
     font-size: 1.6em;
 }
- h3 {
+
+h3 {
     margin: .1em 0;
     font-size: 1.4em;
- }
+}
+
+p {
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+}
 
 .magazine-title {
     border-bottom: black 4px solid;
